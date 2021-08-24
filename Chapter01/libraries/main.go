@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chyidl/go-design-patterns/introduction/libraries/arithmetic"
+	"github.com/chyidl/go-design-patterns/Chapter01/libraries/arithmetic"
 )
 
 func main() {

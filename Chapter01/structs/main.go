@@ -18,6 +18,7 @@ func (p *Person) GetFullName() string {
 }
 
 // struct function on value
+// full copy was passed
 func (p Person) GetHobbies() []string {
 	// non-pointer valueMethod when you're returning a immutable private property
 	return p.Hobbies
