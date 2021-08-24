@@ -12,7 +12,6 @@
 > 在类加载期间，对应golang init() 方法，就应该将instance静态实例初始化好，所以insance实例的创建是线程安全的，这样的实现方式不支持延迟加载实例
 
 ```
-$ go test -bench=. -v
 go-design-patterns/Chapter02/singleton/hungry on  main [!] via 🐹 v1.16.6
 ➜ go test  -bench=. -v
 === RUN   TestGetInstance
@@ -43,5 +42,17 @@ BenchmarkGetInstanceParallel
 BenchmarkGetInstanceParallel-8   	1000000000	         0.7532 ns/op
 PASS
 ok  	github.com/chyidl/go-design-patterns/Chapter02/singleton/lazy	1.010s
-
 ```
+
+
+### 单例存在哪些问题
+  * 单例对OOP特性支持不友好
+  * 单例会隐藏类之间的依赖关系
+  * 单例对代码的扩展性不友好
+  * 单例对代码的可测性不友好
+  * 单例不支持有参数的构造函数
+
+### FAQ
+* 单例类中对象的唯一性作用范围是进程内，在进程间是不唯一的
+* 如何实现集群环境下的单例?
+> 把单例对象序列化并存储到外部共享存储区,进程在使用这个单例对象的时候，需要先从外部共享存储区中读取到内存，并反序列化对象，然后使用，使用完之后还需要在存储会外部共享存储区。
