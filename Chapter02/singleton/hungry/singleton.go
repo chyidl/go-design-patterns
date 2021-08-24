@@ -1,6 +1,6 @@
 // this implementation is not thread safe
 // 一个类只允许创建一个对象 这个类就是一个单例类
-package singleton
+package hungry
 
 // Singleton 饿汉式单例
 type singleton struct {
